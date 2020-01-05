@@ -1,4 +1,16 @@
+A Few Problems and Solutions
+======================
+1. There is always namespace errors leading unrecognized tasks. Solution is to call task like 
+`task = celery.send_task('app.long_task')`
+
+2. Celery stops support windows after 4.0. It will cause some error like 'ValueError: not enough values to unpack (expected 3, got 0)'. Solution is to install eventlet and specify this in the work run command. `pip install eventlet` then `celery worker -A app.celery --loglevel=info --pool=eventlet`
+See below link for details https://github.com/celery/celery/issues/4178#issuecomment-344176336
 Using Celery with Flask
+
+3. Remaining issue
+The email part still not works for me. Didn't fix.
+
+Original ReadMe
 =======================
 
 This repository contains the example code for my blog article [Using Celery with Flask](http://blog.miguelgrinberg.com/post/using-celery-with-flask).
